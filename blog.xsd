@@ -1,0 +1,51 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:simpleType name="themeType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="tecnologia"/>
+      <xs:enumeration value="moda"/>
+      <xs:enumeration value="finanzas"/>
+      <xs:enumeration value="viajes"/>
+      <xs:enumeration value="cocina"/>
+      <xs:enumeration value="fitness"/>
+      <xs:enumeration value="arte-cultura"/>
+      <xs:enumeration value="salud-bienestar"/>
+      <xs:enumeration value="educacion"/>
+      <xs:enumeration value="emprendimiento"/>
+      <xs:enumeration value="medio-ambiente"/>
+      <xs:enumeration value="animales"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="blog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="title" type="xs:string" maxOccurs="1">
+        </xs:element>
+        <xs:element name="description" type="xs:string" maxOccurs="1">
+        </xs:element>
+        <xs:element name="comment-length" type="xs:positiveInteger" maxOccurs="1">
+        </xs:element>
+        
+        <xs:element name="theme" type="themeType" maxOccurs="1">
+        </xs:element>
+
+        <xs:element name="tags" type="xs:positiveInteger" maxOccurs="1">
+        </xs:element>
+        <xs:element name="font" type="xs:string" maxOccurs="1">
+        </xs:element>
+        <xs:element name="background-color" type="xs:string" maxOccurs="1">
+        </xs:element>
+        <xs:element name="entry-color" type="xs:string" maxOccurs="1">
+        </xs:element>
+        <xs:element name="title-color" type="xs:string" maxOccurs="1">
+        </xs:element>
+        <xs:element name="social-media" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+        </xs:element>
+        <xs:element name="contact-info" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

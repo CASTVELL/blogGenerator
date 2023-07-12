@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Generador de Blogs</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+  </head>
+  <body>
+    <h1>Generador de Blogs</h1>
+    <form id="blog-form">
+      <label for="title" class="blogFormTitle"
+        >Título (máx. 100 caracteres):</label
+      >
+      <input type="text" id="title" maxlength="100" required />
+
+      <br />
+      <label for="description" class="blogFormTitle"
+        >Descripción del blog (máx. 1000 caracteres):</label
+      >
+      <textarea id="description" maxlength="1000" required></textarea>
+      <br />
+      <label for="comment-length" class="blogFormTitle"
+        >Longitud máxima de comentarios:</label
+      >
+      <input type="number" id="comment-length" min="1" max="1000" required />
+
+      <br />
+      <label for="theme" class="blogFormTitle">Tema del blog:</label>
+      <select id="theme" required>
+        <option value="tecnologia">Tecnología</option>
+        <option value="moda">Moda</option>
+        <option value="finanzas">Finanzas</option>
+        <option value="viajes">Viajes</option>
+        <option value="cocina">Cocina</option>
+        <option value="fitness">Fitness</option>
+        <option value="arte-cultura">Arte y Cultura</option>
+        <option value="salud-bienestar">Salud y Bienestar</option>
+        <option value="educacion">Educación</option>
+        <option value="emprendimiento">Emprendimiento</option>
+        <option value="medio-ambiente">Medio Ambiente</option>
+        <option value="animales">Animales</option>
+      </select>
+      <br />
+
+      <label for="font" class="blogFormTitle">Fuente del blog:</label>
+      <select id="font" required>
+        <option value="Arial">Arial</option>
+        <option value="Helvetica">Helvetica</option>
+        <option value="Verdana">Verdana</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Georgia">Georgia</option>
+      </select>
+      <br />
+      <label for="background-color" class="blogFormTitle"
+        >Color de fondo:</label
+      >
+      <input type="color" id="background-color" required />
+      <br />
+      <label for="entry-color" class="blogFormTitle"
+        >Color de las entradas:</label
+      >
+      <input type="color" id="entry-color" required />
+      <br />
+      <label for="title-color" class="blogFormTitle">Color del título:</label>
+      <input type="color" id="title-color" required />
+      <br />
+      <label for="social-media" class="blogFormTitle">Redes social:</label>
+      <input
+        type="text"
+        id="social-media1"
+        placeholder="Red social del Autor"
+      />
+
+      <br />
+      <label for="contact-info" class="blogFormTitle"
+        >Información de contacto:</label
+      >
+      <input type="text" id="contact-info1" placeholder="Campo de contacto 1" />
+
+      <br />
+      <input type="submit" value="Generar" id="generate-button" />
+    </form>
+
+    <div id="blog-container" style="display: none">
+      <button id="download-button" style="display: none">Descargar Blog</button>
+      <h2 id="blog-title"></h2>
+      <img id="blog-title-image" />
+      <p id="blog-description"></p>
+      <div id="blog-images"></div>
+      <button id="add-article-button">Agregar Artículo</button>
+      <form id="article-form" style="display: none">
+        <label for="article-title">Título del Artículo:</label>
+        <input type="text" id="article-title" required />
+        <br />
+        <label for="article-content">Contenido del Artículo:</label>
+        <textarea id="article-content" required></textarea>
+        <br />
+        <label for="article-images">Imágenes del Artículo (máx. 4):</label>
+        <input
+          type="file"
+          id="article-images"
+          accept="image/*"
+          multiple
+          maxlength="4"
+        />
+        <br />
+        <input type="submit" value="Guardar" />
+      </form>
+      <div id="articles-container"></div>
+      <footer>
+        <div id="social-media-links"></div>
+        <div id="contact-info"></div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

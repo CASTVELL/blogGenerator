@@ -1,16 +1,16 @@
-document.getElementById('blog-form').addEventListener('submit', function(event) {
+document.getElementById('blog-form').addEventListener('submit', function (event) {
   event.preventDefault();
 
   // Recuperar los valores ingresados por el usuario
   var title = document.getElementById('title').value;
-  var titleImage = document.getElementById('title-image').value;
+
   var description = document.getElementById('description').value;
-  var blogImages = document.getElementById('blog-images').value;
-  var selectedFont = document.getElementById('font').value;
+
+
   var tagCount = document.getElementById('tags').value;
 
   // Generar el blog
-  generateBlog(title, titleImage, description, blogImages, selectedFont, tagCount);
+  generateBlog(title, description, tagCount);
 
   // Ocultar el formulario y el botón "Generar"
   document.getElementById('blog-form').style.display = 'none';
@@ -35,7 +35,7 @@ function generateBlog(title, titleImage, description, blogImages, selectedFont, 
 
   // Generar el código HTML para las imágenes del blog
   var imagesHTML = '';
-  blogImages.split(',').forEach(function(image) {
+  blogImages.split(',').forEach(function (image) {
     imagesHTML += '<img src="' + image + '">';
   });
   document.getElementById('blog-images').innerHTML = imagesHTML;
@@ -47,6 +47,8 @@ function generateBlog(title, titleImage, description, blogImages, selectedFont, 
   }
   document.getElementById('tags').innerHTML = tagsHTML;
 }
+
+
 
 function downloadBlog() {
   // Generate the XML content of the blog
@@ -73,7 +75,7 @@ function downloadBlog() {
 
 document.getElementById('download-button').addEventListener('click', downloadBlog);
 
-document.getElementById('add-article-button').addEventListener('click', function(event) {
+document.getElementById('add-article-button').addEventListener('click', function (event) {
   event.preventDefault();
 
   // Mostrar el formulario de artículo y ocultar el botón "Agregar Artículo"
@@ -81,7 +83,7 @@ document.getElementById('add-article-button').addEventListener('click', function
   document.getElementById('article-form').style.display = 'block';
 });
 
-document.getElementById('article-form').addEventListener('submit', function(event) {
+document.getElementById('article-form').addEventListener('submit', function (event) {
   event.preventDefault();
 
   // Recuperar los valores ingresados en el formulario de artículo
@@ -110,7 +112,7 @@ document.getElementById('article-form').addEventListener('submit', function(even
 
   var articleImagesElement = document.createElement('div');
   articleImagesElement.className = 'article-images';
-  articleImages.split(',').forEach(function(image) {
+  articleImages.split(',').forEach(function (image) {
     var imgElement = document.createElement('img');
     imgElement.src = image;
     articleImagesElement.appendChild(imgElement);
@@ -136,12 +138,12 @@ document.getElementById('article-form').addEventListener('submit', function(even
   var commentForm = commentSection.querySelector('.comment-form');
   var commentSubmitButton = commentSection.querySelector('.comment-submit');
 
-  addCommentButton.addEventListener('click', function() {
+  addCommentButton.addEventListener('click', function () {
     addCommentButton.style.display = 'none';
     commentForm.style.display = 'block';
   });
 
-  commentSubmitButton.addEventListener('click', function() {
+  commentSubmitButton.addEventListener('click', function () {
     var usernameInput = commentForm.querySelector('input[type="text"][placeholder="Nombre de usuario"]');
     var contentInput = commentForm.querySelector('input[type="text"][placeholder="Contenido"]');
 
@@ -197,9 +199,9 @@ function generateBlogXML() {
 function escapeXML(string) {
   // Escape XML special characters
   return string.replace(/&/g, '&amp;')
-               .replace(/</g, '&lt;')
-               .replace(/>/g, '&gt;')
-               .replace(/"/g, '&quot;')
-               .replace(/'/g, '&apos;');
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
 }
 

@@ -2,10 +2,10 @@ const DOMParser = require('xmldom').DOMParser;
 const Validator = require('xsd-schema-validator');
 
 // Ruta al archivo XSD que define el esquema
-const xsdPath = 'ruta/al/esquema.xsd';
+const xsdPath = './blog.xsd';
 
 // Ruta al archivo XMI que deseas validar
-const xmiPath = 'ruta/al/documento.xmi';
+const xmiPath = './blog.xmi';
 
 // Lee el contenido del archivo XMI
 const xmiContent = fs.readFileSync(xmiPath, 'utf-8');
